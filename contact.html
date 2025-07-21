@@ -12,97 +12,73 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
     </style>
-    <style>
-        .contact-page {
-            display: flex;
-            flex-wrap: wrap;
-            min-height: 100vh;
-            background-color: #0A0B0A;
-            color: #EFE7D2;
-            font-family: 'Forum', serif;
-        }
+<style>
+    .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 24px;
+  padding: 24px;
+  max-width: 100%;
+}
 
-        .contact-image-section {
-            flex: 1;
-            position: relative;
-            overflow: hidden;
-            border-radius: 16px;
-        }
+.grid-card {
+  background: #111;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid #2a2a2a;
+  color: #fff;
+  font-family: 'Libre Baskerville', serif;
+}
 
-        .contact-image-section img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.opening-hours ul {
+  list-style: none;
+  padding: 0;
+}
 
-        .contact-heading {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            font-size: 48px;
-            color: #f5f5e0;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-        }
+.opening-hours li {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 14px;
+}
 
-        .contact-info-section {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            padding: 32px;
-        }
+.image-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
 
-        .card {
-            background-color: #111;
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid #333330;
-        }
+.image-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
 
-        .opening-hours ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+.map-container iframe {
+  width: 100%;
+  height: 200px;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
 
-        .opening-hours li {
-            display: flex;
-            justify-content: space-between;
-            padding: 4px 0;
-        }
+.route-btn {
+  padding: 10px 16px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+  border-radius: 8px;
+}
 
-        .contact-gallery {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
-        }
+.contact-info p {
+  margin: 12px 0;
+  font-size: 14px;
+}
 
-        .contact-gallery img {
-            width: 100%;
-            border-radius: 8px;
-        }
-
-        .contact-map iframe {
-            width: 100%;
-            height: 200px;
-            border-radius: 8px;
-        }
-
-        .route-btn {
-            margin-top: 8px;
-            padding: 8px 16px;
-            background-color: transparent;
-            border: 1px solid #EFE7D2;
-            color: #EFE7D2;
-            cursor: pointer;
-            border-radius: 6px;
-            font-size: 14px;
-        }
-
-        .contact-details p {
-            margin: 10px 0;
-        }
-    </style>
+</style>
 </head>
 
 <body>
@@ -134,43 +110,47 @@
             </div>
         </div>
 
-        <div class="contact-info-grid">
-            <!-- Row 1 - Column 1: Opening Hours -->
-            <div class="card opening-hours">
-                <h3>OPENING HOURS</h3>
-                <ul>
-                    <li><span>Mon</span> <span>16:00 - 22:30</span></li>
-                    <li><span>Tue</span> <span>16:00 - 22:30</span></li>
-                    <li><span>Wed</span> <span>16:00 - 22:30</span></li>
-                    <li><span>Thu</span> <span>16:00 - 22:30</span></li>
-                    <li><span>Fri</span> <span>16:00 - 22:30</span></li>
-                </ul>
-            </div>
+<div class="contact-grid">
+  <!-- Opening Hours -->
+  <div class="grid-card opening-hours">
+    <h3>OPENING HOURS</h3>
+    <ul>
+      <li><span>Mon</span><span>16:00 - 22:30</span></li>
+      <li><span>Tue</span><span>16:00 - 22:30</span></li>
+      <li><span>Wed</span><span>16:00 - 22:30</span></li>
+      <li><span>Thu</span><span>16:00 - 22:30</span></li>
+      <li><span>Fri</span><span>16:00 - 22:30</span></li>
+    </ul>
+  </div>
 
-            <!-- Row 1 - Column 2: Gallery -->
-            <div class="card contact-gallery">
-                <img src="images/food1.jpg" />
-                <img src="images/food2.jpg" />
-                <img src="images/food3.jpg" />
-                <img src="images/food4.jpg" />
-            </div>
+  <!-- Image Grid -->
+  <div class="grid-card image-gallery">
+    <img src="images/food1.jpg" alt="food1" />
+    <img src="images/food2.jpg" alt="food2" />
+    <img src="images/food3.jpg" alt="food3" />
+    <img src="images/food4.jpg" alt="food4" />
+  </div>
 
-            <!-- Row 2 - Column 1: Map -->
-            <div class="card contact-map">
-                <iframe src="https://www.google.com/maps/embed?...your-coordinates..." style="border:0;" allowfullscreen
-                    loading="lazy">
-                </iframe>
-                <button class="route-btn">SHOW ROUTE →</button>
-            </div>
+  <!-- Map -->
+  <div class="grid-card map-container">
+    <iframe
+      src="https://www.google.com/maps/embed?...your-map-url..."
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+    <button class="route-btn">SHOW ROUTE →</button>
+  </div>
 
-            <!-- Row 2 - Column 2: Contact Info -->
-            <div class="card contact-details">
-                <h3>GET IN TOUCH</h3>
-                <p><strong>Address:</strong><br>23 Greenfield Avenue, Prague 120 00</p>
-                <p><strong>Phone:</strong><br>+42 1234 567890</p>
-                <p><strong>Email:</strong><br>info@qitchen.com</p>
-            </div>
-        </div>
+  <!-- Contact Details -->
+  <div class="grid-card contact-info">
+    <h3>GET IN TOUCH</h3>
+    <p><strong>Address:</strong><br />23 Greenfield Avenue, Prague 120 00</p>
+    <p><strong>Phone:</strong><br />+42 1234 567890</p>
+    <p><strong>Email:</strong><br />info@qitchen.com</p>
+  </div>
+</div>
+
 
 
         <script src="./js/script.js"></script>
