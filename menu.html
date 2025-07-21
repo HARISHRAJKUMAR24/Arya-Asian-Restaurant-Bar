@@ -9,12 +9,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="./styles/menu.css">
+
+    <!-- fontawsome -->
+     <script src="https://kit.fontawesome.com/181ea7bd20.js" crossorigin="anonymous"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
     </style>
 </head>
 
 <body>
+  
     <div class="menu-container">
         <div class="menu-image">
             <!-- Navbar -->
@@ -44,7 +48,9 @@
         </div>
 
         <div class="menu-content">
-            <div class="menu-tabs">
+               
+            <div class="menu-tabs" id="menu-tabs">
+              
                 <button class="active" onclick="scrollToSection('Indo-Chineese-Starters')">Indo-Chineese
                     Starters</button>
                 <button onclick="scrollToSection('Thai-Starters')">Thai Starters</button>
@@ -66,9 +72,19 @@
                 <button onclick="scrollToSection('Desserts')">Desserts</button>
             </div>
 
+<<<<<<< Updated upstream
             <!-- Go to Top Button -->
             <button id="goTopBtn" onclick="scrollToTop()">↑ Top</button>
 
+=======
+ <div class="top-btn">
+       <a href="#menu-tabs">
+         <button>
+<i class="fa-solid fa-arrow-up"></i>
+        </button>
+       </a>
+    </div>
+>>>>>>> Stashed changes
             <!-- Menu Section: Indo-Chineese Starters -->
             <div id="Indo-Chineese-Starters" class="menu-section">
                 <h2 class="menu-category">Indo-Chineese Starters</h2>
