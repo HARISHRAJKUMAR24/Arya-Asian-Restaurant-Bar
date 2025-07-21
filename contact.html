@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Qitchen | Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="./styles/menu.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+    </style>
+    <style>
+        .contact-page {
+            display: flex;
+            flex-wrap: wrap;
+            min-height: 100vh;
+            background-color: #0A0B0A;
+            color: #EFE7D2;
+            font-family: 'Forum', serif;
+        }
+
+        .contact-image-section {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        .contact-image-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .contact-heading {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 48px;
+            color: #f5f5e0;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .contact-info-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 32px;
+        }
+
+        .card {
+            background-color: #111;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #333330;
+        }
+
+        .opening-hours ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .opening-hours li {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+        }
+
+        .contact-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .contact-gallery img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+        }
+
+        .route-btn {
+            margin-top: 8px;
+            padding: 8px 16px;
+            background-color: transparent;
+            border: 1px solid #EFE7D2;
+            color: #EFE7D2;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .contact-details p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu-container">
+        <div class="menu-image">
+            <!-- Navbar -->
+            <nav class="navbar">
+                <div class="nav-left">
+                    <button class="menu-btn" onclick="toggleOverlay()">☰</button>
+                    <span class="logo">QITCHEN</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#">MENU</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                </ul>
+                <a href="#" class="book">BOOK A TABLE</a>
+            </nav>
+            <img src="images/menu_main.png" alt="Main Dish" />
+            <h1 class="menu-heading">MENU</h1>
+
+            <!-- Fullscreen Navigation Overlay -->
+            <div class="overlay" id="fullscreenNav">
+                <button class="close-btn" onclick="toggleOverlay()">×</button>
+                <a href="#">MENU</a>
+                <a href="#">RESERVATION</a>
+                <a href="#">ABOUT</a>
+                <a href="./contact.html">CONTACT</a>
+                <a href="#">BLOG</a>
+            </div>
+        </div>
+
+        <div class="contact-info-grid">
+            <!-- Row 1 - Column 1: Opening Hours -->
+            <div class="card opening-hours">
+                <h3>OPENING HOURS</h3>
+                <ul>
+                    <li><span>Mon</span> <span>16:00 - 22:30</span></li>
+                    <li><span>Tue</span> <span>16:00 - 22:30</span></li>
+                    <li><span>Wed</span> <span>16:00 - 22:30</span></li>
+                    <li><span>Thu</span> <span>16:00 - 22:30</span></li>
+                    <li><span>Fri</span> <span>16:00 - 22:30</span></li>
+                </ul>
+            </div>
+
+            <!-- Row 1 - Column 2: Gallery -->
+            <div class="card contact-gallery">
+                <img src="images/food1.jpg" />
+                <img src="images/food2.jpg" />
+                <img src="images/food3.jpg" />
+                <img src="images/food4.jpg" />
+            </div>
+
+            <!-- Row 2 - Column 1: Map -->
+            <div class="card contact-map">
+                <iframe src="https://www.google.com/maps/embed?...your-coordinates..." style="border:0;" allowfullscreen
+                    loading="lazy">
+                </iframe>
+                <button class="route-btn">SHOW ROUTE →</button>
+            </div>
+
+            <!-- Row 2 - Column 2: Contact Info -->
+            <div class="card contact-details">
+                <h3>GET IN TOUCH</h3>
+                <p><strong>Address:</strong><br>23 Greenfield Avenue, Prague 120 00</p>
+                <p><strong>Phone:</strong><br>+42 1234 567890</p>
+                <p><strong>Email:</strong><br>info@qitchen.com</p>
+            </div>
+        </div>
+
+
+        <script src="./js/script.js"></script>
+    </div>
+</body>
+
+</html>

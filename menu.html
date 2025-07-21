@@ -15,6 +15,24 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
     </style>
+    <style>
+        .contact-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 24px;
+  padding: 32px;
+  flex: 1;
+}
+
+.card {
+  background-color: #111;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #333330;
+}
+
+    </style>
 </head>
 
 <body>
@@ -35,7 +53,7 @@
             </nav>
             <img src="images/menu_main.png" alt="Main Dish" />
             <h1 class="menu-heading">MENU</h1>
-            
+
             <!-- Fullscreen Navigation Overlay -->
             <div class="overlay" id="fullscreenNav">
                 <button class="close-btn" onclick="toggleOverlay()">×</button>
