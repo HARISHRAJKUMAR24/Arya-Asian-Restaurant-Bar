@@ -31,6 +31,16 @@
             </nav>
             <img src="images/menu_main.png" alt="Main Dish" />
             <h1 class="menu-heading">MENU</h1>
+            
+            <!-- Fullscreen Navigation Overlay -->
+            <div class="overlay" id="fullscreenNav">
+                <button class="close-btn" onclick="toggleOverlay()">×</button>
+                <a href="#">MENU</a>
+                <a href="#">RESERVATION</a>
+                <a href="#">ABOUT</a>
+                <a href="./contact.html">CONTACT</a>
+                <a href="#">BLOG</a>
+            </div>
         </div>
 
         <div class="menu-content">
@@ -56,6 +66,8 @@
                 <button onclick="scrollToSection('Desserts')">Desserts</button>
             </div>
 
+            <!-- Go to Top Button -->
+            <button id="goTopBtn" onclick="scrollToTop()">↑ Top</button>
 
             <!-- Menu Section: Indo-Chineese Starters -->
             <div id="Indo-Chineese-Starters" class="menu-section">
@@ -178,7 +190,7 @@
                     <img src="images/item1.png" alt="Veg Spring Rolls with Thai Sauce" />
                     <div class="item-text">
                         <div class="item-header">
-                            <span>1.6PCS Veg Spring Rolls with Thai Saucee</span>
+                            <span>6PCS Veg Spring Rolls with Thai Saucee</span>
                             <span class="price">$5</span>
                         </div>
                         <p>Crispy vegetable-filled rolls served with sweet Thai chili sauce—crunchy, light, and packed
@@ -187,10 +199,10 @@
                 </div>
 
                 <div class="menu-item">
-                    <img src="images/item1.png" alt="12.2x Skewer Chicken with Thai Sauce" />
+                    <img src="images/item1.png" alt="2x Skewer Chicken with Thai Sauce" />
                     <div class="item-text">
                         <div class="item-header">
-                            <span>12.2x Skewer Chicken with Thai Sauce</span>
+                            <span>2x Skewer Chicken with Thai Sauce</span>
                             <span class="price">$5</span>
                         </div>
                         <p>Grilled chicken skewers served with tangy Thai dipping sauce - zesty, tender, and infused
@@ -1370,18 +1382,11 @@
                 </div>
             </div>
 
-            <!-- Fullscreen Navigation Overlay -->
-            <div class="overlay" id="fullscreenNav">
-                <button class="close-btn" onclick="toggleOverlay()">×</button>
-                <a href="#">MENU</a>
-                <a href="#">RESERVATION</a>
-                <a href="#">ABOUT</a>
-                <a href="#">CONTACT</a>
-                <a href="#">BLOG</a>
-            </div>
+
 
         </div>
         <script src="./js/script.js"></script>
+    </div>
 </body>
 
 </html>
