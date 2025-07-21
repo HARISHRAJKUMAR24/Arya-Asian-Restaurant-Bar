@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Qitchen | Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="./styles/menu.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+    </style>
+</head>
+
+<body>
+    <div class="menu-container">
+        <div class="menu-image">
+            <!-- Navbar -->
+            <nav class="navbar">
+                <div class="nav-left">
+                    <button class="menu-btn" onclick="toggleOverlay()">☰</button>
+                    <span class="logo">QITCHEN</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#">MENU</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                </ul>
+                <a href="#" class="book">BOOK A TABLE</a>
+            </nav>
+            <img src="images/menu_main.png" alt="Main Dish" />
+            <h1 class="menu-heading">MENU</h1>
+        </div>
+
+        <div class="menu-content">
+            <div class="menu-tabs">
+                <button class="active" onclick="scrollToSection('Indo-Chineese-Starters')">Indo-Chineese
+                    Starters</button>
+                <button onclick="scrollToSection('uramakki')">URAMAKI</button>
+                <button onclick="scrollToSection('special-rolls')">SPECIAL ROLLS</button>
+            </div>
+
+
+
+            <!-- Menu Section: Indo-Chineese Starters -->
+            <div id="Indo-Chineese-Starters" class="menu-section">
+                <h2 class="menu-category">Indo-Chineese Starters</h2>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Gobi 65" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Gobi 65</span>
+                            <span class="price">$5</span>
+                        </div>
+                        <p>Crispy cauliflower florets fried with South Indian spices, and chilies—fiery, tangy, and full
+                            of flavor.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Paneer 65" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Paneer 65<span class="veg"></span></span>
+                            <span class="price">$5</span>
+                        </div>
+                        <p>Golden fried paneer cubes tossed in spicy, tangy masala, delivering bold South Indian street
+                            food flavors.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Veg Manchurian" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Veg Manchurian<span class="veg"></span></span>
+                            <span class="price">$5</span>
+                        </div>
+                        <p>Fried vegetable balls in a savory Indo-Chinese sauce, blending garlic, soya, and spices into
+                            a rich, saucy delight.</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Mushroom 65" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Mushroom 65<span class="veg"></span></span>
+                            <span class="price">$5</span>
+                        </div>
+                        <p>Juicy mushrooms fried and coated in fiery red spice blend with crunchy, spicy, and
+                            irresistibly satisfying.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Chilli Paneer" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Chilli Paneer<span class="veg"></span></span>
+                            <span class="price">$5</span>
+                        </div>
+                        <p>Soft paneer cubes stir-fried with bell peppers, garlic, and spicy soya sauce—a classic
+                            Indo-Chinese favorite, both sweet and spicy.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Chilli Chips" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Chilli Chips<span class="veg"></span></span>
+                            <span class="price">$5</span>
+                        </div>
+                        <p>Crispy potato fries tossed in spicy Indo-Chinese sauce with garlic and chilies—fiery, tangy,
+                            and perfectly addictive.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Chicken 65" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Chicken 65<span class="veg"></span></span>
+                            <span class="price">$5</span>
+                        </div>
+                        <p>Crisp, deep-fried chicken pieces marinated in bold spices,, and green chilies—a legendary
+                            South Indian bar snack.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Chicken Manchurian" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Chicken Manchurian<span class="veg"></span></span>
+                            <span class="price">$5</span>
+                        </div>
+                        <p>Fried chicken tossed in a thick, tangy soya-garlic sauce with peppers and onions—zesty,
+                            saucy, and deeply satisfying.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Chilli Chicken" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Chilli Chicken<span class="veg"></span></span>
+                            <span class="price">$5</span>
+                        </div>
+                        <p>Spicy Indo-Chinese chicken with bell peppers, green chilies, and soya-garlic glaze—crunchy,
+                            saucy, and full of bold flavor.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="special-rolls" class="menu-section">
+                <h2 class="menu-category">special-rolls</h2>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Spicy Tuna Maki" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>SPICY TUNA MAKI</span>
+                            <span class="price">$5</span>
+                        </div>
+                        <p>A tantalizing blend of spicy tuna, cucumber, and avocado, harmoniously rolled in nori and
+                            seasoned rice.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Mango Maki" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>MANGO MAKI <span class="veg">&#8962;</span></span>
+                            <span class="price">$5</span>
+                        </div>
+                        <p>Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="maki" class="menu-section">
+                <h2 class="menu-category">MAKI</h2>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Spicy Tuna Maki" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>SPICY TUNA MAKI</span>
+                            <span class="price">$5</span>
+                        </div>
+                        <p>A tantalizing blend of spicy tuna, cucumber, and avocado, harmoniously rolled in nori and
+                            seasoned rice.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Mango Maki" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>MANGO MAKI <span class="veg">&#8962;</span></span>
+                            <span class="price">$5</span>
+                        </div>
+                        <p>Tempura-fried shrimp, cucumber, and cream cheese embrace a center of fresh avocado.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More items here... -->
+
+        </div>
+    </div>
+
+    <!-- Fullscreen Navigation Overlay -->
+    <div class="overlay" id="fullscreenNav">
+        <button class="close-btn" onclick="toggleOverlay()">×</button>
+        <a href="#">MENU</a>
+        <a href="#">RESERVATION</a>
+        <a href="#">ABOUT</a>
+        <a href="#">CONTACT</a>
+        <a href="#">BLOG</a>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
