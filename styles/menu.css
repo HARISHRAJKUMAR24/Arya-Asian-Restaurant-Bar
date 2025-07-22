@@ -346,7 +346,6 @@ html {
 
 /*--------------------- Desktop Devices --------------------- */
 @media screen and (min-width: 1025px) {
-
     .menu-image,
     .menu-content {
         flex: 1;
