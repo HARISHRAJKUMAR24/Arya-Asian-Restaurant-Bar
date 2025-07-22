@@ -34,3 +34,30 @@ function scrollToTop() {
 
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    const upBtn = document.getElementById('up_btn');
+    const scrollContainer = document.querySelector('.menu-content');
+
+    function toggleUpButton(scrollTopValue) {
+        if (scrollTopValue > 100) {
+            upBtn.classList.add('show');
+        } else {
+            upBtn.classList.remove('show');
+        }
+    }
+
+    // On page load
+    toggleUpButton(scrollContainer ? scrollContainer.scrollTop : window.scrollY);
+
+    // Mobile scroll
+    window.addEventListener('scroll', function () {
+        toggleUpButton(window.scrollY);
+    });
+
+    // Desktop scroll
+    if (scrollContainer) {
+        scrollContainer.addEventListener('scroll', function () {
+            toggleUpButton(scrollContainer.scrollTop);
+        });
+    }
+});
