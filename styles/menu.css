@@ -31,6 +31,9 @@ html {
         bottom: 20px;
         right: 20px;
     }
+      .menu-tabs{
+        max-width: 480px;
+      }
 
 }
 
@@ -215,22 +218,40 @@ html {
     color: #f5f5e0;
 }
 
-.menu-tabs {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
+/* menu tabs */
+  .menu-tabs {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 20px; 
+      white-space: nowrap;
+    }
 
-.menu-tabs button {
-    background: #1c1c1c;
+    .menu-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .menu-tabs button {
+      scroll-snap-align: center;
+      padding: 10px 16px;
+      font-size: 18px;
+     background: #1c1c1c;
     border: 2px solid #333330;
     color: #EFE7D2;
-    padding: 6px 12px;
+    padding: 12px 12px;
     border-radius: 6px;
-    cursor: pointer;
-}
+    cursor: pointer; 
+  transition: transform 0.3s ease, z-index 0.3s;
+      min-width: max-content;
+    }
+
+    .menu-tabs button.active {
+      background:#1c1c1c;
+ 
+    }
+    
+
 
 .menu-category {
     font-size: 32px;
@@ -342,7 +363,9 @@ html {
     color: #f5f5e0;
     padding: 6px 12px;
     cursor: pointer;
-}
+} 
+
+
 
 /*--------------------- Desktop Devices --------------------- */
 @media screen and (min-width: 1025px) {
@@ -487,3 +510,6 @@ html {
 }
 
 
+
+
+/* tab bar */

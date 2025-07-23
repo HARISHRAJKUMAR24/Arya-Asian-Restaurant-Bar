@@ -51,27 +51,26 @@
         <div class="menu-content">
 
             <div class="menu-tabs" id="menu-tabs">
-
-                <button class="active" onclick="scrollToSection('Indo-Chineese-Starters')">Indo-Chineese
-                    Starters</button>
-                <button onclick="scrollToSection('Thai-Starters')">Thai Starters</button>
-                <button onclick="scrollToSection('Harmony-Starters-Japanese')">Harmony Starters (Japanese)</button>
-                <button onclick="scrollToSection('Heritage-Starters-Indian')">Heritage Starters (Indian)</button>
-                <button onclick="scrollToSection('Special-Soya-Chaap')">Special Soya Chaap</button>
-                <button onclick="scrollToSection('Wraps')">Wraps</button>
-                <button onclick="scrollToSection('Burgers')">Burgers</button>
-                <button onclick="scrollToSection('Breads')">Breads</button>
-                <button onclick="scrollToSection('Rice')">Rice</button>
-                <button onclick="scrollToSection('Sides')">Sides</button>
-                <button onclick="scrollToSection('Innovation-Starters-Chinese')">Innovation-Starters-Chinese</button>
-                <button onclick="scrollToSection('Japanese-Teriyaki')">Japanese Teriyaki</button>
-                <button onclick="scrollToSection('Japanese-Ramen')">Japanese Ramen</button>
-                <button onclick="scrollToSection('Vegetarian-Delights')">Vegetarian Delights</button>
-                <button onclick="scrollToSection('Non-Veg-Biryani')">Non-Veg Biryani</button>
-                <button onclick="scrollToSection('Veg-Biryani')">Veg Biryani</button>
-                <button onclick="scrollToSection('Pad-Thai-Noodles')">Pad Thai Noodles</button>
-                <button onclick="scrollToSection('Desserts')">Desserts</button>
-            </div>
+    <button class="active" onclick="scrollToSection('Indo-Chineese-Starters')">Indo-Chineese Starters</button>
+    <button onclick="scrollToSection('Thai-Starters')">Thai Starters</button>
+    <button onclick="scrollToSection('Harmony-Starters-Japanese')">Harmony Starters (Japanese)</button>
+    <button onclick="scrollToSection('Heritage-Starters-Indian')">Heritage Starters (Indian)</button>
+    <button onclick="scrollToSection('Special-Soya-Chaap')">Special Soya Chaap</button>
+    <button onclick="scrollToSection('Wraps')">Wraps</button>
+    <button onclick="scrollToSection('Burgers')">Burgers</button>
+    <button onclick="scrollToSection('Breads')">Breads</button>
+    <button onclick="scrollToSection('Rice')">Rice</button>
+    <button onclick="scrollToSection('Sides')">Sides</button>
+    <button onclick="scrollToSection('Innovation-Starters-Chinese')">Innovation-Starters-Chinese</button>
+    <button onclick="scrollToSection('Japanese-Teriyaki')">Japanese Teriyaki</button>
+    <button onclick="scrollToSection('Japanese-Ramen')">Japanese Ramen</button>
+    <button onclick="scrollToSection('Vegetarian-Delights')">Vegetarian Delights</button>
+    <button onclick="scrollToSection('Non-Veg-Biryani')">Non-Veg Biryani</button>
+    <button onclick="scrollToSection('Veg-Biryani')">Veg Biryani</button>
+    <button onclick="scrollToSection('Pad-Thai-Noodles')">Pad Thai Noodles</button>
+    <button onclick="scrollToSection('Desserts')">Desserts</button>
+  </div> 
+        
             <div class="top-btn" id="up_btn">
                 <a href="#menu-tabs">
                     <button>
@@ -1451,6 +1450,49 @@
         </div>
         <script src="./js/script.js"></script>
     </div>
+
+
+    <script>
+        const tabContainer = document.getElementById('menu-tabs');
+const buttons = tabContainer.querySelectorAll('button');
+
+function expoEase(x) {
+  return x === 0 ? 0 : Math.pow(2, 8 * (x - 1)); // Slightly less sharp than 10
+}
+
+function clamp(val, min, max) {
+  return Math.min(Math.max(val, min), max);
+}
+
+function updateScale() {
+  const containerRect = tabContainer.getBoundingClientRect();
+  const containerCenter = containerRect.left + containerRect.width / 2;
+
+  buttons.forEach((btn) => {
+    const btnRect = btn.getBoundingClientRect();
+    const btnCenter = btnRect.left + btnRect.width / 2;
+    const distance = Math.abs(containerCenter - btnCenter);
+    const maxDistance = containerRect.width / 2;
+
+    const t = clamp(1 - distance / maxDistance, 0, 1); // 0 (far) to 1 (center)
+    const scale = clamp(1 + 0.25 * expoEase(t), 1, 1.25); // Clamp scale
+    const zIndex = Math.round(1 + t * 10); // 1 to 11 based on proximity
+
+    btn.style.transform = `scale(${scale})`;
+    btn.style.zIndex = zIndex;
+  });
+}
+
+tabContainer.addEventListener('scroll', () => {
+  requestAnimationFrame(updateScale);
+});
+
+window.addEventListener('resize', updateScale);
+window.addEventListener('load', updateScale);
+
+</script>
 </body>
+
+
 
 </html>
