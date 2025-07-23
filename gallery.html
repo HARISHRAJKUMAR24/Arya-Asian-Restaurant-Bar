@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Qitchen | Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="./styles/menu.css">
+    <link rel="stylesheet" href="./styles/gallery.css">
+    <!-- fontawsome -->
+    <script src="https://kit.fontawesome.com/181ea7bd20.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="menu-container">
+        <div class="menu-image">
+            <nav class="navbar">
+                <div class="nav-left">
+                    <button class="menu-btn" onclick="toggleOverlay()">☰</button>
+                    <span class="logo">ARYA Restaurant</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="./index.html">MENU</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                </ul>
+                <a href="#" class="book">BOOK A TABLE</a>
+            </nav>
+            <img src="images/menu_main.png" alt="Main Dish" />
+            <h1 class="menu-heading">MENU</h1>
+
+            <div class="overlay" id="fullscreenNav">
+                <button class="close-btn" onclick="toggleOverlay()">×</button>
+                <a href="./index.html">MENU</a>
+                <a href="#">RESERVATION</a>
+                <a href="#">ABOUT</a>
+                <a href="./contact.html">CONTACT</a>
+                <a href="#">BLOG</a>
+            </div>
+        </div>
+
+        <div class="menu-grid-gallery">
+            <div class="slide-row slide-left">
+                <div class="slide-track">
+                    <img src="images/aloo paratha.jpeg" alt="Aloo Paratha" />
+                    <img src="images/butter naan.jpeg" alt="Butter Naan" />
+                    <img src="images/chicken tikka wrap.jpeg" alt="Chicken Tikka Wrap" />
+                    <img src="images/aloo paratha.jpeg" alt="Aloo Paratha" />
+                    <img src="images/butter naan.jpeg" alt="Butter Naan" />
+                    <img src="images/chicken tikka wrap.jpeg" alt="Chicken Tikka Wrap" />
+                    <img src="images/aloo paratha.jpeg" alt="Aloo Paratha" />
+                    <img src="images/butter naan.jpeg" alt="Butter Naan" />
+                    <img src="images/chicken tikka wrap.jpeg" alt="Chicken Tikka Wrap" />
+                    <img src="images/aloo paratha.jpeg" alt="Aloo Paratha" />
+                    <img src="images/butter naan.jpeg" alt="Butter Naan" />
+                    <img src="images/chicken tikka wrap.jpeg" alt="Chicken Tikka Wrap" />
+                </div>
+            </div>
+
+            <div class="slide-row slide-right">
+                <div class="slide-track">
+                    <img src="images/garlic naan.jpeg" alt="Garlic Naan" />
+                    <img src="images/paneer tikka.jpeg" alt="Paneer Tikka" />
+                    <img src="images/biryani.jpeg" alt="Biryani" />
+                    <img src="images/garlic naan.jpeg" alt="Garlic Naan" />
+                    <img src="images/paneer tikka.jpeg" alt="Paneer Tikka" />
+                    <img src="images/biryani.jpeg" alt="Biryani" />
+                    <img src="images/garlic naan.jpeg" alt="Garlic Naan" />
+                    <img src="images/paneer tikka.jpeg" alt="Paneer Tikka" />
+                    <img src="images/biryani.jpeg" alt="Biryani" />
+                    <img src="images/garlic naan.jpeg" alt="Garlic Naan" />
+                    <img src="images/paneer tikka.jpeg" alt="Paneer Tikka" />
+                    <img src="images/biryani.jpeg" alt="Biryani" />
+                </div>
+            </div>
+
+            <div class="slide-row slide-left">
+                <div class="slide-track">
+                    <img src="images/gobi manchurian.jpeg" alt="Gobi Manchurian" />
+                    <img src="images/veg roll.jpeg" alt="Veg Roll" />
+                    <img src="images/fish curry.jpeg" alt="Fish Curry" />
+                    <img src="images/gobi manchurian.jpeg" alt="Gobi Manchurian" />
+                    <img src="images/veg roll.jpeg" alt="Veg Roll" />
+                    <img src="images/fish curry.jpeg" alt="Fish Curry" />
+                    <img src="images/gobi manchurian.jpeg" alt="Gobi Manchurian" />
+                    <img src="images/veg roll.jpeg" alt="Veg Roll" />
+                    <img src="images/fish curry.jpeg" alt="Fish Curry" />
+                    <img src="images/gobi manchurian.jpeg" alt="Gobi Manchurian" />
+                    <img src="images/veg roll.jpeg" alt="Veg Roll" />
+                    <img src="images/fish curry.jpeg" alt="Fish Curry" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
