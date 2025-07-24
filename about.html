@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Qitchen | Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="./about.css"> <!-- Changed to about.css -->
+    <link rel="stylesheet" href="./styles/menu.css">
+    <link rel="stylesheet" href="./styles/about.css">
+    <!-- fontawsome -->
+    <script src="https://kit.fontawesome.com/181ea7bd20.js" crossorigin="anonymous"></script>
+
+</head>
+
+<!-- Rest of your HTML remains the same -->
+
+<body>
+    <div class="menu-container">
+        <div class="menu-image">
+            <nav class="navbar">
+                <div class="nav-left">
+                    <button class="menu-btn" onclick="toggleOverlay()">☰</button>
+                    <span class="logo">ARYA Restaurant</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="./index.html">MENU</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                </ul>
+                <a href="#" class="book">BOOK A TABLE</a>
+            </nav>
+            <img src="images/menu_main.png" alt="Main Dish" />
+            <h1 class="menu-heading">ABOUT</h1>
+
+            <div class="overlay" id="fullscreenNav">
+                <button class="close-btn" onclick="toggleOverlay()">×</button>
+                <a href="./index.html">MENU</a>
+                <a href="#">RESERVATION</a>
+                <a href="./about.html">ABOUT</a>
+                <a href="./contact.html">CONTACT</a>
+                <a href="#">BLOG</a>
+            </div>
+        </div>
+
+        <div class="right-side-section">
+            <!-- Row 1: Two Columns -->
+            <div class="about-row about-row-1">
+                <div class="about-text">
+                    <h2>Sushi Artistry Redefined</h2>
+                    <p>Where culinary craftsmanship meets modern elegance. Indulge in the finest bites crafted with
+                        precision.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/chicken tikka wrap.jpeg" alt="Woman Dining">
+                </div>
+            </div>
+
+            <!-- Row 2: Three Review Cards -->
+            <div class="about-row about-row-2">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <h3>Trip Advisor</h3>
+                    <p>Best Sushi</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <h3>Michelin Guide</h3>
+                    <p>Quality Food</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <h3>Start Dining</h3>
+                    <p>Cool Vibe</p>
+                </div>
+            </div>
+
+            <!-- Row 3: Image + Text -->
+            <div class="about-row about-row-3">
+                <div class="about-image">
+                    <img src="images/98f65984-92a0-4f2c-8e8a-178f97cfe279_0.jpeg" alt="Chef Working">
+                </div>
+                <div class="about-text">
+                    <h3>Our Story</h3>
+                    <p>Founded with a passion for culinary excellence, ARYA's journey began in the heart of the city.
+                        Over years, it evolved into a haven for sushi.</p>
+                </div>
+            </div>
+
+            <footer class="about-footer">
+                <span>© Gola Templates</span>
+                <span>Licensing</span>
+            </footer>
+        </div>
+
+        <script src="./js/script.js"></script>
+</body>
+
+</html>

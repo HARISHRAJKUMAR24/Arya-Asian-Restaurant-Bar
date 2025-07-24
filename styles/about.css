@@ -1,0 +1,278 @@
+/* Right Side Container */
+.right-side-section {
+    flex: 1;
+    padding: 40px;
+    color: #fff;
+    font-family: 'Libre Baskerville', serif;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    overflow-y: auto;
+    /* Keep scrolling */
+    height: 90vh;
+
+    /* Hide scrollbar visually */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
+.right-side-section::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+
+/* Common Row Styles */
+.about-row {
+    display: flex;
+    gap: 40px;
+}
+
+/* Row 1: Text + Image */
+.about-row-1 {
+    align-items: center;
+}
+
+.about-row-1 .about-text {
+    flex: 1;
+}
+
+.about-row-1 .about-image {
+    flex: 1;
+}
+
+/* Row 2: Review Cards */
+.about-row-2 {
+    justify-content: space-between;
+}
+
+.review-card {
+    flex: 1;
+    padding: 25px 20px;
+    background: #1a1a1a;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    min-width: 150px;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.stars {
+    font-size: 18px;
+    color: #f5f5e0;
+    margin-bottom: 10px;
+}
+
+.review-card h3 {
+    font-size: 20px;
+    margin: 10px 0 5px;
+}
+
+.review-card p {
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* Row 3: Image + Text */
+.about-row-3 {
+    align-items: center;
+}
+
+.about-row-3 .about-image {
+    flex: 1;
+}
+
+.about-row-3 .about-text {
+    flex: 1;
+}
+
+/* Common Image Styles */
+.about-image {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.about-image:hover img {
+    transform: scale(1.03);
+}
+
+/* Text Styles */
+.about-text h2 {
+    font-size: 28px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    color: #f5f5e0;
+    letter-spacing: 1.5px;
+}
+
+.about-text h3 {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: #f5f5e0;
+    position: relative;
+}
+
+.about-text h3::before,
+.about-text h3::after {
+    content: "—";
+    margin: 0 15px;
+    color: #666;
+}
+
+.about-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #ddd;
+}
+
+/* Footer */
+.about-footer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    margin-top: auto;
+    font-size: 14px;
+    color: #777;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .right-side-section {
+        height: auto;
+    }
+
+    .about-row-1,
+    .about-row-3 {
+        flex-direction: column;
+    }
+
+    .about-row-2 {
+        flex-wrap: wrap;
+    }
+
+    .review-card {
+        min-width: calc(50% - 20px);
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .right-side-section {
+        padding: 30px;
+    }
+
+    .review-card {
+        min-width: 100%;
+    }
+
+    .about-text h3::before,
+    .about-text h3::after {
+        display: none;
+    }
+}
+
+/* --------------------- Mobile Devices --------------------- */
+@media screen and (max-width: 767px) {
+    .right-side-section {
+        padding: 20px;
+        height: auto;
+        gap: 30px;
+    }
+
+    .about-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .about-text h2 {
+        font-size: 22px;
+    }
+
+    .about-text h3 {
+        font-size: 20px;
+    }
+
+    .about-text p {
+        font-size: 15px;
+    }
+
+    .review-card {
+        min-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .about-text h3::before,
+    .about-text h3::after {
+        display: none;
+    }
+
+    .menu-heading {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    nav.navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .book {
+        margin-top: 10px;
+    }
+}
+
+/* --------------------- Tablet Devices --------------------- */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .right-side-section {
+        padding: 30px;
+        height: auto;
+        gap: 35px;
+    }
+
+    .about-row-1,
+    .about-row-3 {
+        flex-direction: column;
+    }
+
+    .about-row-2 {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .review-card {
+        min-width: calc(50% - 10px);
+    }
+
+    .about-text h2 {
+        font-size: 26px;
+    }
+
+    .about-text h3 {
+        font-size: 22px;
+    }
+
+    .about-text p {
+        font-size: 15px;
+    }
+}
