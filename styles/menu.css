@@ -349,11 +349,12 @@ html {
 }
 
 .overlay a {
-    font-size: 32px;
+    font-size: 52px;
     margin: 16px 0;
     text-decoration: none;
     color: #f5f5e0;
     transition: color 0.3s;
+    text-transform: uppercase;
 }
 
 .overlay a:hover {
@@ -407,6 +408,10 @@ html {
         box-sizing: border-box;
         border-radius: 12px;
         justify-content: space-around;
+    }
+
+    .overlay a {
+        font-size: 46px;
     }
 
     .menu-container {
@@ -495,6 +500,10 @@ html {
         justify-content: space-between;
         align-items: center;
         width: 100%;
+    }
+
+    .overlay a {
+        font-size: 42px;
     }
 
     .menu-item {
