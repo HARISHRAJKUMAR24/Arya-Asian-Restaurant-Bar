@@ -15,7 +15,6 @@
     <script src="https://kit.fontawesome.com/181ea7bd20.js" crossorigin="anonymous"></script>
 
 </head>
-
 <!-- Rest of your HTML remains the same -->
 
 <body>
@@ -51,12 +50,23 @@
                 <div class="about-text">
                     <h2>Sushi Artistry Redefined</h2>
                     <p>Where culinary craftsmanship meets modern elegance. Indulge in the finest bites crafted with
+                        precision.Where culinary craftsmanship meets modern elegance. Indulge in the finest bites
+                        crafted with
+                        precision.Where culinary craftsmanship meets modern elegance. Indulge in the finest bites
+                        crafted with
                         precision.</p>
                 </div>
-                <div class="about-image">
-                    <img src="images/chicken tikka wrap.jpeg" alt="Woman Dining">
+                <div class="about-image-slider">
+                    <button class="slider-btn prev" onclick="prevSlide(this)">❮</button>
+                    <div class="slider-wrapper">
+                        <img src="images/chicken tikka wrap.jpeg" alt="Dish 1">
+                        <img src="images/menu_main.png" alt="Dish 2">
+                        <img src="images/chef_preparing.jpg" alt="Dish 3">
+                    </div>
+                    <button class="slider-btn next" onclick="nextSlide(this)">❯</button>
                 </div>
             </div>
+
 
             <!-- Row 2: Three Review Cards -->
             <div class="about-row about-row-2">
@@ -79,8 +89,14 @@
 
             <!-- Row 3: Image + Text -->
             <div class="about-row about-row-3">
-                <div class="about-image">
-                    <img src="images/98f65984-92a0-4f2c-8e8a-178f97cfe279_0.jpeg" alt="Chef Working">
+                <div class="about-image-slider">
+                    <button class="slider-btn prev" onclick="prevSlide(this)">❮</button>
+                    <div class="slider-wrapper">
+                        <img src="images/chicken tikka wrap.jpeg" alt="Dish 1">
+                        <img src="images/menu_main.png" alt="Dish 2">
+                        <img src="images/chef_preparing.jpg" alt="Dish 3">
+                    </div>
+                    <button class="slider-btn next" onclick="nextSlide(this)">❯</button>
                 </div>
                 <div class="about-text">
                     <h3>Our Story</h3>
@@ -96,6 +112,51 @@
         </div>
 
         <script src="./js/script.js"></script>
+
+        <script>
+            document.querySelectorAll('.about-image-slider').forEach(slider => {
+                slider.dataset.index = 0;
+                updateSliderButtons(slider);
+            });
+
+            function nextSlide(button) {
+                const slider = button.closest('.about-image-slider');
+                const wrapper = slider.querySelector('.slider-wrapper');
+                const total = wrapper.children.length;
+                let index = parseInt(slider.dataset.index);
+
+                if (index < total - 1) {
+                    index++;
+                    slider.dataset.index = index;
+                    wrapper.style.transform = `translateX(-${index * 100}%)`;
+                    updateSliderButtons(slider);
+                }
+            }
+
+            function prevSlide(button) {
+                const slider = button.closest('.about-image-slider');
+                const wrapper = slider.querySelector('.slider-wrapper');
+                let index = parseInt(slider.dataset.index);
+
+                if (index > 0) {
+                    index--;
+                    slider.dataset.index = index;
+                    wrapper.style.transform = `translateX(-${index * 100}%)`;
+                    updateSliderButtons(slider);
+                }
+            }
+
+            function updateSliderButtons(slider) {
+                const index = parseInt(slider.dataset.index);
+                const total = slider.querySelector('.slider-wrapper').children.length;
+
+                const prevBtn = slider.querySelector('.slider-btn.prev');
+                const nextBtn = slider.querySelector('.slider-btn.next');
+
+                prevBtn.style.display = index === 0 ? 'none' : 'block';
+                nextBtn.style.display = index === total - 1 ? 'none' : 'block';
+            }
+        </script>
 </body>
 
 </html>
