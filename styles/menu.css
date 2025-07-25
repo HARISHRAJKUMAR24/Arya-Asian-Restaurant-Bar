@@ -70,6 +70,8 @@ html {
 .menu-content {
     flex: 1 1 100%;
     border-radius: 12px;
+    
+
 }
 
 .menu-image {
@@ -85,7 +87,7 @@ html {
 }
 
 .menu-content {
-    padding: 64px 40px;
+    padding: 64px 10px;
     border: 2px solid #333330;
     scroll-behavior: smooth;
     box-sizing: border-box;
@@ -341,7 +343,118 @@ html {
     cursor: pointer;
 }
 
+/* ---------- Scroll Tab CSS (Clean & Responsive) ---------- */
+/* Wrapper to prevent tab overflow on small screens */
+.menu-content {
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
 
+/* Main scrollable tab row with perfect centering */
+.menu-tabs,
+#menu-tabs {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    gap: 12px;
+    padding: 16px 50%;
+    scrollbar-width: none;
+    /* Firefox */
+    cursor: grab;
+    user-select: none;
+    min-width: 100%;
+    position: relative;
+    gap: 20px;
+
+}
+
+/* Hide scrollbars */
+.menu-tabs::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+/* Dragging state */
+.menu-tabs.dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+    /* Disable snap while dragging */
+}
+
+/* Pseudo-elements for edge centering */
+.menu-tabs::before,
+.menu-tabs::after {
+    content: '';
+    flex: 0 0 calc(50% - 6px);
+    /* Account for gap */
+    pointer-events: none;
+}
+
+/* Tab buttons */
+.tab-button,
+#menu-tabs button {
+    flex: 0 0 auto;
+    flex-shrink: 0;
+    padding: 6px 12px;
+    /* reduced padding */
+    border-radius: 6px;
+    /* smaller corner radius */
+    background: #1a1a1a00;
+    color: #EFE7D2;
+    border: 2px solid #333330;
+    font-size: 11px;
+    /* smaller font size */
+    font-weight: 400;
+    transition: transform 0.2s ease, font-size 0.2s ease, border-color 0.35s ease;
+    white-space: nowrap;
+}
+
+
+/* Active/Zoomed tab */
+.tab-button.zoomed,
+#menu-tabs button.zoomed {
+    font-size: 12px;
+    transform: scale(1.15);
+    color: #EFE7D2;
+    margin-inline: 12px;
+    z-index: 1;
+    box-shadow: 0 0 6px rgba(78, 76, 71, 0.685);
+    border-color: #4E4C47;
+}
+
+/* Hover effect */
+.tab-button:hover,
+#menu-tabs button:hover {
+    border-color: #4E4C47;
+    cursor: pointer;
+}
+
+/* Section visibility control */
+.menu-section {
+    display: none;
+    padding-top: 24px;
+}
+
+.menu-section.active {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 /*--------------------- Desktop Devices --------------------- */
 @media screen and (min-width: 1025px) {
@@ -419,7 +532,29 @@ html {
         font-size: 13px;
         padding: 5px 12px;
     }
+
+    .menu-tabs {
+        gap: 10px;
+        /* slightly reduced gap */
+        padding: 14px;
+        /* slightly reduced padding */
+    }
+
+    .tab-button {
+        font-size: 14.5px;
+        padding: 9px 18px;
+    }
+
+    .tab-button.zoomed {
+        font-size: 16px;
+        transform: scale(1.12);
+    }
+
+    .menu-section {
+        padding-top: 20px;
+    }
 }
+
 
 
 
@@ -494,93 +629,78 @@ html {
     .item-text p {
         width: 100%;
     }
+
+    .menu-tabs {
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .tab-button {
+        font-size: 13.5px;
+        padding: 8px 16px;
+    }
+
+    .tab-button.zoomed {
+        font-size: 15px;
+        transform: scale(1.1);
+    }
+
+    .menu-section {
+        padding-top: 18px;
+    }
 }
 
-/* menu tabs */
+
+/* Make sure tabs container doesn't overflow its wrapper */
+.menu-content {
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Ensure inner tab row remains scrollable horizontally */
+.menu-tabs {
+    flex-wrap: nowrap;
+    min-width: 100%;
+}
+
+/* Prevent tab buttons from shrinking */
+.tab-button {
+    flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+    .menu-tabs {
+        gap: 10px;
+        /* keep things tight, not change padding */
+    }
+
+    .tab-button {
+        font-size: 14px;
+        /* slightly tighter if needed */
+    }
+}
+
+
 .menu-tabs {
     display: flex;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 20px;
-    white-space: nowrap;
-    gap: 12px;
-    /* Add gap between buttons */
-    scrollbar-width: none;
-    /* For Firefox */
-}
-
-.menu-tabs::-webkit-scrollbar {
-    display: none;
-    /* For Chrome/Safari */
-}
-
-.menu-tabs button {
-    flex: 0 0 auto;
-    /* Prevent buttons from stretching */
-    padding: 10px 16px;
-    font-size: 18px;
-    background: #1c1c1c;
-    border: 2px solid #333330;
-    color: #EFE7D2;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    min-width: max-content;
-    margin: 0 4px;
-    /* Add some margin between buttons */
-}
-
-html,
-body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
-    /* Prevent double scroll on desktop */
-}
-
-.menu-container {
-    height: 100vh;
-    /* Full height layout */
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.menu-content {
-    flex: 1;
-    height: 90vh;
-    overflow-y: auto;
+    scroll-snap-type: x proximity;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    /* For smooth scrolling on iOS */
+    padding: 0 50%;
+    /* Creates padding for centering edge tabs */
 }
 
+.menu-tabs::before,
+.menu-tabs::after {
+    content: '';
+    flex: 0 0 50%;
+}
 
-@media (min-width: 1025px) {
-  .menu-tabs {
-    overflow-x: auto;
-    -ms-overflow-style: none;  /* IE/Edge */
-    scrollbar-width: thin;     /* Firefox */
-    scrollbar-color: #777 #1c1c1c; /* Firefox thumb + track */
-  }
-
-  .menu-tabs::-webkit-scrollbar {
-    height: 6px;
-  }
-
-  .menu-tabs::-webkit-scrollbar-track {
-    background: #1c1c1c;        /* Dark track to blend with menu */
-    border-radius: 6px;
-  }
-
-  .menu-tabs::-webkit-scrollbar-thumb {
-    background-color: #777;     /* Softer thumb for visibility */
-    border-radius: 6px;
-    border: 1px solid #333330;  /* Optional subtle border */
-  }
-
-  .menu-tabs::-webkit-scrollbar-thumb:hover {
-    background-color: #aaa;     /* Lighten on hover for feedback */
-  }
+.tab-button {
+    scroll-snap-align: center;
+    flex-shrink: 0;
+    /* Your existing button styles */
 }

@@ -48,26 +48,27 @@
         <div class="menu-content">
 
             <div class="menu-tabs" id="menu-tabs">
-                <button class="active" onclick="scrollToSection('Indo-Chineese-Starters')">Indo-Chineese
-                    Starters</button>
-                <button onclick="scrollToSection('Thai-Starters')">Thai Starters</button>
-                <button onclick="scrollToSection('Harmony-Starters-Japanese')">Harmony Starters (Japanese)</button>
-                <button onclick="scrollToSection('Heritage-Starters-Indian')">Heritage Starters (Indian)</button>
-                <button onclick="scrollToSection('Special-Soya-Chaap')">Special Soya Chaap</button>
-                <button onclick="scrollToSection('Wraps')">Wraps</button>
-                <button onclick="scrollToSection('Burgers')">Burgers</button>
-                <button onclick="scrollToSection('Breads')">Breads</button>
-                <button onclick="scrollToSection('Rice')">Rice</button>
-                <button onclick="scrollToSection('Sides')">Sides</button>
-                <button onclick="scrollToSection('Innovation-Starters-Chinese')">Innovation-Starters-Chinese</button>
-                <button onclick="scrollToSection('Japanese-Teriyaki')">Japanese Teriyaki</button>
-                <button onclick="scrollToSection('Japanese-Ramen')">Japanese Ramen</button>
-                <button onclick="scrollToSection('Vegetarian-Delights')">Vegetarian Delights</button>
-                <button onclick="scrollToSection('Non-Veg-Biryani')">Non-Veg Biryani</button>
-                <button onclick="scrollToSection('Veg-Biryani')">Veg Biryani</button>
-                <button onclick="scrollToSection('Pad-Thai-Noodles')">Pad Thai Noodles</button>
-                <button onclick="scrollToSection('Desserts')">Desserts</button>
+                <button class="tab-button" data-section="Indo-Chineese-Starters">Indo-Chineese Starters</button>
+                <button class="tab-button" data-section="Thai-Starters">Thai Starters</button>
+                <button class="tab-button" data-section="Harmony-Starters-Japanese">Harmony Starters (Japanese)</button>
+                <button class="tab-button" data-section="Heritage-Starters-Indian">Heritage Starters (Indian)</button>
+                <button class="tab-button" data-section="Special-Soya-Chaap">Special Soya Chaap</button>
+                <button class="tab-button" data-section="Wraps">Wraps</button>
+                <button class="tab-button" data-section="Burgers">Burgers</button>
+                <button class="tab-button" data-section="Breads">Breads</button>
+                <button class="tab-button" data-section="Rice">Rice</button>
+                <button class="tab-button" data-section="Sides">Sides</button>
+                <button class="tab-button"
+                    data-section="Innovation-Starters-Chinese">Innovation-Starters-Chinese</button>
+                <button class="tab-button" data-section="Japanese-Teriyaki">Japanese Teriyaki</button>
+                <button class="tab-button" data-section="Japanese-Ramen">Japanese Ramen</button>
+                <button class="tab-button" data-section="Vegetarian-Delights">Vegetarian Delights</button>
+                <button class="tab-button" data-section="Non-Veg-Biryani">Non-Veg Biryani</button>
+                <button class="tab-button" data-section="Veg-Biryani">Veg Biryani</button>
+                <button class="tab-button" data-section="Pad-Thai-Noodles">Pad Thai Noodles</button>
+                <button class="tab-button" data-section="Desserts">Desserts</button>
             </div>
+
 
             <div class="top-btn" id="up_btn">
                 <a href="#menu-tabs">
@@ -1451,116 +1452,13 @@
 
 
     <script>
-        // --------- Scale effect on horizontal scroll ----------
-        const tabContainer = document.getElementById('menu-tabs');
-        const buttons = tabContainer.querySelectorAll('button');
 
-        function expoEase(x) {
-            return x === 0 ? 0 : Math.pow(2, 8 * (x - 1));
-        }
 
-        function clamp(val, min, max) {
-            return Math.min(Math.max(val, min), max);
-        }
-
-        function updateScale() {
-            const containerRect = tabContainer.getBoundingClientRect();
-            const containerCenter = containerRect.left + containerRect.width / 2;
-
-            buttons.forEach((btn) => {
-                const btnRect = btn.getBoundingClientRect();
-                const btnCenter = btnRect.left + btnRect.width / 2;
-                const distance = Math.abs(containerCenter - btnCenter);
-                const maxDistance = containerRect.width / 2;
-
-                const t = clamp(1 - distance / maxDistance, 0, 1);
-                const scale = clamp(1 + 0.25 * expoEase(t), 1, 1.25);
-                const zIndex = Math.round(1 + t * 10);
-
-                btn.style.transform = `scale(${scale})`;
-                btn.style.zIndex = zIndex;
-            });
-        }
-
-        tabContainer.addEventListener('scroll', () => {
-            requestAnimationFrame(updateScale);
-        });
-
-        window.addEventListener('resize', updateScale);
-        window.addEventListener('load', updateScale);
-
-        // ---------- Scroll to Section ----------
-        function scrollToSection(id) {
-            const element = document.getElementById(id);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        // ---------- Toggle Fullscreen Menu ----------
-        function toggleOverlay() {
-            const overlay = document.getElementById("fullscreenNav");
-            overlay.classList.toggle("active");
-        }
-
-        // ---------- Go to Top Button Show/Hide ----------
-        document.addEventListener('DOMContentLoaded', function () {
-            const upBtn = document.getElementById('up_btn');
-            const scrollContainer = document.querySelector('.menu-content');
-
-            function toggleUpButton(scrollTopValue) {
-                if (scrollTopValue > 100) {
-                    upBtn.classList.add('show');
-                } else {
-                    upBtn.classList.remove('show');
-                }
-            }
-
-            toggleUpButton(scrollContainer ? scrollContainer.scrollTop : window.scrollY);
-
-            window.addEventListener('scroll', function () {
-                toggleUpButton(window.scrollY);
-            });
-
-            if (scrollContainer) {
-                scrollContainer.addEventListener('scroll', function () {
-                    toggleUpButton(scrollContainer.scrollTop);
-                });
-            }
-        });
-
-        // ---------- Activate Tabs on Scroll ----------
-        const sectionIds = Array.from(document.querySelectorAll('[data-section]')).map(btn => btn.dataset.section);
-        const observerOptions = {
-            root: document.querySelector('.menu-content'),
-            threshold: 0.3,
-            rootMargin: "0px 0px -60% 0px"
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const sectionId = entry.target.id;
-                    document.querySelectorAll('#menu-tabs button').forEach(btn => {
-                        if (btn.dataset.section === sectionId) {
-                            btn.classList.add('active');
-                        } else {
-                            btn.classList.remove('active');
-                        }
-                    });
-                }
-            });
-        }, observerOptions);
-
-        sectionIds.forEach(id => {
-            const section = document.getElementById(id);
-            if (section) {
-                observer.observe(section);
-            }
-        });
     </script>
 
-    
+
+
+
 </body>
 
 
