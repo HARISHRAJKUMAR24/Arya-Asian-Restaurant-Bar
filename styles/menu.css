@@ -351,13 +351,14 @@ html {
     padding-right: 20px;
     color: #EFE7D2;
     font-size: 20px;
+    text-transform: uppercase;
 }
 
 .item-text p {
     font-size: 14px;
     color: #F5F2EA;
     line-height: 1.5;
-    width: 326px;
+    width: 80%;
     font-weight: 300;
 
 }
