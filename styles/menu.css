@@ -226,39 +226,6 @@ html {
     color: #f5f5e0;
 }
 
-/* menu tabs */
-.menu-tabs {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding: 20px;
-    white-space: nowrap;
-}
-
-.menu-tabs::-webkit-scrollbar {
-    display: none;
-}
-
-.menu-tabs button {
-    scroll-snap-align: center;
-    padding: 10px 16px;
-    font-size: 18px;
-    background: #1c1c1c;
-    border: 2px solid #333330;
-    color: #EFE7D2;
-    padding: 12px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: transform 0.3s ease, z-index 0.3s;
-    min-width: max-content;
-}
-
-.menu-tabs button.active {
-    background: #1c1c1c;
-
-}
-
 
 
 .menu-category {
@@ -527,4 +494,93 @@ html {
     .item-text p {
         width: 100%;
     }
+}
+
+/* menu tabs */
+.menu-tabs {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 20px;
+    white-space: nowrap;
+    gap: 12px;
+    /* Add gap between buttons */
+    scrollbar-width: none;
+    /* For Firefox */
+}
+
+.menu-tabs::-webkit-scrollbar {
+    display: none;
+    /* For Chrome/Safari */
+}
+
+.menu-tabs button {
+    flex: 0 0 auto;
+    /* Prevent buttons from stretching */
+    padding: 10px 16px;
+    font-size: 18px;
+    background: #1c1c1c;
+    border: 2px solid #333330;
+    color: #EFE7D2;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    min-width: max-content;
+    margin: 0 4px;
+    /* Add some margin between buttons */
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    /* Prevent double scroll on desktop */
+}
+
+.menu-container {
+    height: 100vh;
+    /* Full height layout */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.menu-content {
+    flex: 1;
+    height: 90vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+@media (min-width: 1025px) {
+  .menu-tabs {
+    overflow-x: auto;
+    -ms-overflow-style: none;  /* IE/Edge */
+    scrollbar-width: thin;     /* Firefox */
+    scrollbar-color: #777 #1c1c1c; /* Firefox thumb + track */
+  }
+
+  .menu-tabs::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .menu-tabs::-webkit-scrollbar-track {
+    background: #1c1c1c;        /* Dark track to blend with menu */
+    border-radius: 6px;
+  }
+
+  .menu-tabs::-webkit-scrollbar-thumb {
+    background-color: #777;     /* Softer thumb for visibility */
+    border-radius: 6px;
+    border: 1px solid #333330;  /* Optional subtle border */
+  }
+
+  .menu-tabs::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;     /* Lighten on hover for feedback */
+  }
 }

@@ -1,0 +1,39 @@
+.menu-tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 10px 15px;
+    position: sticky;
+    top: 0;
+    background-color: #0A0B0A;
+    z-index: 100;
+    scrollbar-width: none; /* Firefox */
+}
+
+.menu-tabs::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.menu-tabs button {
+    white-space: nowrap;
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid #EFE7D2;
+    color: #EFE7D2;
+    font-family: 'Satoshi', sans-serif;
+    font-size: 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.menu-tabs button:hover {
+    background-color: #EFE7D2;
+    color: #0A0B0A;
+}
+
+.menu-tabs button.active {
+    background-color: #EFE7D2;
+    color: #0A0B0A;
+    font-weight: bold;
+}

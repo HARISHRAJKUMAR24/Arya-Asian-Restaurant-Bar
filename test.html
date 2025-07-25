@@ -8,271 +8,294 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="./about.css"> <!-- Changed to about.css -->
     <link rel="stylesheet" href="./styles/menu.css">
-    <link rel="stylesheet" href="./styles/about.css">
+
     <!-- fontawsome -->
     <script src="https://kit.fontawesome.com/181ea7bd20.js" crossorigin="anonymous"></script>
-    <style>
-        .about-row-1 {
-            display: flex;
-            gap: 20px;
-            align-items: stretch;
-        }
 
-        .about-text {
-            border: 1px solid #fff;
-            color: #fff;
-            border-radius: 12px;
-            padding: 20px;
-            font-family: 'Libre Baskerville', serif;
-            flex: 1;
-            height: 200px;
-            /* Match .about-image-slider height */
-            overflow-y: auto;
-            /* Enables scroll if content overflows */
-            background-color: rgba(0, 0, 0, 0.3);
-            /* optional for readability */
-        }
-
-        .about-image-slider {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            height: 200px;
-            flex: 1;
-        }
-
-        .slider-wrapper {
-            display: flex;
-            transition: transform 0.5s ease;
-            width: 100%;
-        }
-
-        .slider-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            /* center entire image without cropping */
-            display: block;
-        }
-
-.slider-wrapper {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-        .slider-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 2;
-            background: rgba(0, 0, 0, 0.4);
-            color: #fff;
-            border: none;
-            font-size: 24px;
-            padding: 8px 12px;
-            cursor: pointer;
-            border-radius: 50%;
-        }
-
-        .slider-btn.prev {
-            left: 10px;
-        }
-
-        .slider-btn.next {
-            right: 10px;
-        }
-
-        .about-text {
-            border: 1px solid #fff;
-            color: #fff;
-            border-radius: 12px;
-            padding: 20px;
-            font-family: 'Libre Baskerville', serif;
-            flex: 1;
-            height: 200px;
-            overflow-y: auto;
-            overflow-x: hidden;
-            background-color: rgba(0, 0, 0, 0.3);
-            scrollbar-width: thin;
-            /* Firefox */
-            scrollbar-color: #888 transparent;
-            /* Firefox */
-        }
-
-        /* Chrome, Edge, Safari scrollbar styling */
-        .about-text::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .about-text::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .about-text::-webkit-scrollbar-thumb {
-            background-color: #888;
-            border-radius: 10px;
-            border: 2px solid transparent;
-            background-clip: content-box;
-        }
-
-        .about-text::-webkit-scrollbar-thumb:hover {
-            background-color: #aaa;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-    </style>
 </head>
-<!-- Rest of your HTML remains the same -->
 
 <body>
+
     <div class="menu-container">
         <div class="menu-image">
+            <!-- Navbar -->
             <nav class="navbar">
                 <div class="nav-left">
                     <button class="menu-btn" onclick="toggleOverlay()">☰</button>
-                    <span class="logo">ARYA Restaurant</span>
+                    <span class="logo">ARYA</span>
                 </div>
                 <ul class="nav-links">
                     <li><a href="./index.html">MENU</a></li>
-                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="./about.html">ABOUT</a></li>
                 </ul>
                 <a href="#" class="book">BOOK A TABLE</a>
             </nav>
             <img src="images/menu_main.png" alt="Main Dish" />
-            <h1 class="menu-heading">ABOUT</h1>
+            <h1 class="menu-heading">MENU</h1>
 
+            <!-- Fullscreen Navigation Overlay -->
             <div class="overlay" id="fullscreenNav">
                 <button class="close-btn" onclick="toggleOverlay()">×</button>
                 <a href="./index.html">MENU</a>
                 <a href="#">RESERVATION</a>
                 <a href="./about.html">ABOUT</a>
+                <a href="./gallery.html">GALLERY</a>
                 <a href="./contact.html">CONTACT</a>
-                <a href="#">BLOG</a>
+                <a href="#">Loyalty</a>
             </div>
         </div>
 
-        <div class="right-side-section">
-            <!-- Row 1: Two Columns -->
-            <div class="about-row about-row-1">
-                <div class="about-text">
-                    <h2>Sushi Artistry Redefined</h2>
-                    <p>Where culinary craftsmanship meets modern elegance. Indulge in the finest bites crafted with
-                        precision.Where culinary craftsmanship meets modern elegance. Indulge in the finest bites crafted with
-                        precision.Where culinary craftsmanship meets modern elegance. Indulge in the finest bites crafted with
-                        precision.</p>
-                </div>
-                <div class="about-image-slider">
-                    <button class="slider-btn prev" onclick="prevSlide(this)">❮</button>
-                    <div class="slider-wrapper">
-                        <img src="images/chicken tikka wrap.jpeg" alt="Dish 1">
-                        <img src="images/menu_main.png" alt="Dish 2">
-                        <img src="images/chef_preparing.jpg" alt="Dish 3">
+        <div class="menu-content">
+
+            <div class="menu-tabs" id="menu-tabs">
+                <button class="active" onclick="scrollToSection('Indo-Chineese-Starters')">Indo-Chineese
+                    Starters</button>
+                <button onclick="scrollToSection('Thai-Starters')">Thai Starters</button>
+                <button onclick="scrollToSection('Harmony-Starters-Japanese')">Harmony Starters (Japanese)</button>
+                <button onclick="scrollToSection('Heritage-Starters-Indian')">Heritage Starters (Indian)</button>
+                <button onclick="scrollToSection('Special-Soya-Chaap')">Special Soya Chaap</button>
+                <button onclick="scrollToSection('Wraps')">Wraps</button>
+                <button onclick="scrollToSection('Burgers')">Burgers</button>
+                <button onclick="scrollToSection('Breads')">Breads</button>
+                <button onclick="scrollToSection('Rice')">Rice</button>
+                <button onclick="scrollToSection('Sides')">Sides</button>
+                <button onclick="scrollToSection('Innovation-Starters-Chinese')">Innovation-Starters-Chinese</button>
+                <button onclick="scrollToSection('Japanese-Teriyaki')">Japanese Teriyaki</button>
+                <button onclick="scrollToSection('Japanese-Ramen')">Japanese Ramen</button>
+                <button onclick="scrollToSection('Vegetarian-Delights')">Vegetarian Delights</button>
+                <button onclick="scrollToSection('Non-Veg-Biryani')">Non-Veg Biryani</button>
+                <button onclick="scrollToSection('Veg-Biryani')">Veg Biryani</button>
+                <button onclick="scrollToSection('Pad-Thai-Noodles')">Pad Thai Noodles</button>
+                <button onclick="scrollToSection('Desserts')">Desserts</button>
+            </div>
+
+            <div class="top-btn" id="up_btn">
+                <a href="#menu-tabs">
+                    <button>
+                        <i class="fa-solid fa-arrow-up"></i>
+                    </button>
+                </a>
+            </div>
+            <!-- Menu Section: Indo-Chineese Starters -->
+            <div id="Indo-Chineese-Starters" class="menu-section">
+                <h2 class="menu-category">Indo-Chineese Starters</h2>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Gobi 65" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Gobi 65</span>
+                            <span class="price">£7.50</span>
+                        </div>
+                        <p>Crispy cauliflower florets fried with South Indian spices, and chilies—fiery, tangy, and
+                            full
+                            of flavor.</p>
                     </div>
-                    <button class="slider-btn next" onclick="nextSlide(this)">❯</button>
                 </div>
-            </div>
 
-
-            <!-- Row 2: Three Review Cards -->
-            <div class="about-row about-row-2">
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <h3>Trip Advisor</h3>
-                    <p>Best Sushi</p>
-                </div>
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <h3>Michelin Guide</h3>
-                    <p>Quality Food</p>
-                </div>
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <h3>Start Dining</h3>
-                    <p>Cool Vibe</p>
-                </div>
-            </div>
-
-            <!-- Row 3: Image + Text -->
-            <div class="about-row about-row-3">
-                <div class="about-image-slider">
-                    <button class="slider-btn prev" onclick="prevSlide(this)">❮</button>
-                    <div class="slider-wrapper">
-                        <img src="images/chicken tikka wrap.jpeg" alt="Dish 1">
-                        <img src="images/menu_main.png" alt="Dish 2">
-                        <img src="images/chef_preparing.jpg" alt="Dish 3">
+                <div class="menu-item">
+                    <img src="images/Panner 65.png" alt="Paneer 65" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Paneer 65<span class="veg"></span></span>
+                            <span class="price">£5.99</span>
+                        </div>
+                        <p>Golden fried paneer cubes tossed in spicy, tangy masala, delivering bold South Indian
+                            street
+                            food flavors.</p>
                     </div>
-                    <button class="slider-btn next" onclick="nextSlide(this)">❯</button>
                 </div>
-                <div class="about-text">
-                    <h3>Our Story</h3>
-                    <p>Founded with a passion for culinary excellence, ARYA's journey began in the heart of the city.
-                        Over years, it evolved into a haven for sushi.</p>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Veg Manchurian" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Veg Manchurian</span>
+                            <span class="price">£7.99</span>
+                        </div>
+                        <p>Fried vegetable balls in a savory Indo-Chinese sauce, blending garlic, soya, and spices
+                            into
+                            a rich, saucy delight.</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Mushroom 65" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Mushroom 65</span>
+                            <span class="price">£7.99</span>
+                        </div>
+                        <p>Juicy mushrooms fried and coated in fiery red spice blend with crunchy, spicy, and
+                            irresistibly satisfying.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Chilli Paneer" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Chilli Paneer</span>
+                            <span class="price">£8.50</span>
+                        </div>
+                        <p>Soft paneer cubes stir-fried with bell peppers, garlic, and spicy soya sauce—a classic
+                            Indo-Chinese favorite, both sweet and spicy.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Chilli Chips" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Chilli Chips</span>
+                            <span class="price">£4.49</span>
+                        </div>
+                        <p>Crispy potato fries tossed in spicy Indo-Chinese sauce with garlic and chilies—fiery,
+                            tangy,
+                            and perfectly addictive.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Chicken 65" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Chicken 65</span>
+                            <span class="price">£9.00</span>
+                        </div>
+                        <p>Crisp, deep-fried chicken pieces marinated in bold spices,, and green chilies—a legendary
+                            South Indian bar snack.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Chicken Manchurian" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Chicken Manchurian</span>
+                            <span class="price">£8.99</span>
+                        </div>
+                        <p>Fried chicken tossed in a thick, tangy soya-garlic sauce with peppers and onions—zesty,
+                            saucy, and deeply satisfying.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Chilli Chicken" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Chilli Chicken</span>
+                            <span class="price">£8.99</span>
+                        </div>
+                        <p>Spicy Indo-Chinese chicken with bell peppers, green chilies, and soya-garlic
+                            glaze—crunchy,
+                            saucy, and full of bold flavor.</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+            <!-- Menu Section: Veg Biryani -->
+            <div id="Veg-Biryani" class="menu-section">
+                <h2 class="menu-category">Veg Biryani</h2>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Paneer Biryani" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Paneer Biryani</span>
+                            <span class="price">£11.99</span>
+                        </div>
+                        <p>Fragrant basmati rice layered with marinated paneer, saffron, and spices—rich, aromatic,
+                            and
+                            a perfect vegetarian biryani experience.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Veg Biryani" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Veg Biryani </span>
+                            <span class="price">£10.99</span>
+                        </div>
+                        <p>Seasonal vegetables cooked with herbs, spices, and basmati rice—light, colorful, and
+                            packed
+                            with traditional biryani aroma and flavor.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Darbar Shahi Biryani" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Darbar Shahi Biryani </span>
+                            <span class="price">£12.99</span>
+                        </div>
+                        <p>A royal vegetarian biryani with nuts, saffron, paneer, and dried fruits—luxurious, mildly
+                            sweet, and bursting with Mughlai richness.</p>
+                    </div>
                 </div>
             </div>
 
-            <footer class="about-footer">
-                <span>© Gola Templates</span>
-                <span>Licensing</span>
-            </footer>
+            <!-- Menu Section: Desserts -->
+            <div id="Desserts" class="menu-section">
+                <h2 class="menu-category">Desserts</h2>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Gajar Halwa" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Gajar Halwa </span>
+                            <span class="price">£4.00</span>
+                        </div>
+                        <p>Slow-cooked grated carrots in milk, ghee, and sugar—rich, warm, and garnished with nuts
+                            for a
+                            classic festive dessert.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Special Rabdi Gulab Jamun" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Special Rabdi Gulab Jamun (1PCS / 2PCS)</span>
+                            <span class="price">£3.49 / £5.99</span>
+                        </div>
+                        <p>Soft gulab jamun served with thick, creamy rabdi—decadent, syrup-soaked indulgence with
+                            every
+                            spoonful of this royal dessert pairing.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="images/item1.png" alt="Chef's Special Gulab Jamun" />
+                    <div class="item-text">
+                        <div class="item-header">
+                            <span>Chef's Special Gulab Jamun</span>
+                            <span class="price">£4.00</span>
+                        </div>
+                        <p>Deep-fried khoya dumplings soaked in saffron-cardamom syrup—extra soft, melt-in-mouth,
+                            and
+                            handcrafted for a luxurious dessert experience.</p>
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
-
         <script src="./js/script.js"></script>
-<script>
-    document.querySelectorAll('.about-image-slider').forEach(slider => {
-        slider.dataset.index = 0;
-        updateSliderButtons(slider);
-    });
+    </div>
 
-    function nextSlide(button) {
-        const slider = button.closest('.about-image-slider');
-        const wrapper = slider.querySelector('.slider-wrapper');
-        const total = wrapper.children.length;
-        let index = parseInt(slider.dataset.index);
 
-        if (index < total - 1) {
-            index++;
-            slider.dataset.index = index;
-            wrapper.style.transform = `translateX(-${index * 100}%)`;
-            updateSliderButtons(slider);
-        }
-    }
-
-    function prevSlide(button) {
-        const slider = button.closest('.about-image-slider');
-        const wrapper = slider.querySelector('.slider-wrapper');
-        let index = parseInt(slider.dataset.index);
-
-        if (index > 0) {
-            index--;
-            slider.dataset.index = index;
-            wrapper.style.transform = `translateX(-${index * 100}%)`;
-            updateSliderButtons(slider);
-        }
-    }
-
-    function updateSliderButtons(slider) {
-        const index = parseInt(slider.dataset.index);
-        const total = slider.querySelector('.slider-wrapper').children.length;
-
-        const prevBtn = slider.querySelector('.slider-btn.prev');
-        const nextBtn = slider.querySelector('.slider-btn.next');
-
-        prevBtn.style.display = index === 0 ? 'none' : 'block';
-        nextBtn.style.display = index === total - 1 ? 'none' : 'block';
-    }
-</script>
 
 
 </body>
+
+
 
 </html>
