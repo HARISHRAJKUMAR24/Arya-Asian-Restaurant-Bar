@@ -285,7 +285,7 @@ html {
 .book {
     margin-left: 16px;
     border: 1px solid #333330;
-    padding:10px 16px;
+    padding: 10px 16px;
     border-radius: 6px;
     color: #EFE7D2;
     text-decoration: none;
@@ -352,15 +352,16 @@ html {
     color: #EFE7D2;
     font-size: 20px;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .item-text p {
     font-size: 14px;
-    color: #F5F2EA;
+    color: #f5f2ead0;
     line-height: 1.5;
     width: 80%;
     font-weight: 300;
-
+    font-family: 'Satoshi', sans-serif;
 }
 
 .menu-dot {
@@ -559,17 +560,61 @@ html {
 
 
 
-/* --------------------- Tablet Devices --------------------- */
-
+/* --------------------- Tablet Devices (768px–1024px) --------------------- */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     .navbar {
+        height: 60px;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 10px;
         left: 50%;
         transform: translateX(-50%);
-        width: 100%;
-        padding: 10px 20px;
-        box-sizing: border-box;
+        width: calc(100% - 40px);
+        max-width: 500px;
         border-radius: 12px;
-        justify-content: space-around;
+        z-index: 1000;
+        box-sizing: border-box;
+    }
+
+    .nav-left {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .menu-btn {
+        height: 36px;
+        width: 36px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo {
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        flex: 1;
+    }
+
+    .book {
+        font-size: 13px;
+        padding: 8px 12px;
+        white-space: nowrap;
+        border-radius: 6px;
+        border: 1px solid #333330;
+        color: #EFE7D2;
+        text-decoration: none;
+        display: block !important;
+    }
+
+    .nav-links {
+        display: none !important;
     }
 
     .overlay a {
@@ -597,8 +642,10 @@ html {
     }
 
     .menu-item img {
-        width: 1fr;
-        height: 100px;
+        width: 100%;
+        height: 190px;
+        display: block;
+        margin: 0 auto;
     }
 
     .item-header {
@@ -606,20 +653,9 @@ html {
         justify-content: space-between;
     }
 
-    .nav-links {
-        gap: 16px;
-    }
-
-    .book {
-        font-size: 13px;
-        padding: 5px 12px;
-    }
-
     .menu-tabs {
         gap: 10px;
-        /* slightly reduced gap */
         padding: 14px;
-        /* slightly reduced padding */
     }
 
     .tab-button {
@@ -637,16 +673,30 @@ html {
     }
 }
 
-
-
-
-/*--------------------- Mobile Devices ---------------------*/
-
+/* --------------------- Mobile Devices (0–767px) --------------------- */
 @media screen and (max-width: 767px) {
+    .navbar {
+        height: 60px;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 40px);
+        max-width: 500px;
+        border-radius: 12px;
+        z-index: 1000;
+        box-sizing: border-box;
+    }
 
-    .nav-links,
-    .book {
-        display: none;
+    .nav-left {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
     }
 
     .menu-btn {
@@ -664,30 +714,35 @@ html {
         margin-right: 12px;
     }
 
-    .menu-container {
-        flex-direction: column;
-        padding: 12px;
+    .logo {
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        flex: 1;
     }
 
-    .navbar {
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        padding: 10px 16px;
-        box-sizing: border-box;
-        border-radius: 12px;
-        justify-content: space-around;
+    .book {
+        font-size: 13px;
+        padding: 8px 12px;
+        white-space: nowrap;
+        border-radius: 6px;
+        border: 1px solid #333330;
+        color: #EFE7D2;
+        text-decoration: none;
+        display: block !important;
     }
 
-    .nav-left {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
+    .nav-links {
+        display: none !important;
     }
 
     .overlay a {
         font-size: 42px;
+    }
+
+    .menu-container {
+        flex-direction: column;
+        padding: 12px;
     }
 
     .menu-item {
@@ -701,7 +756,6 @@ html {
         display: block;
         margin: 0 auto;
     }
-
 
     .item-header {
         flex-direction: row;
@@ -822,8 +876,10 @@ html {
     }
 
     .menu-item img {
-        width: 1fr;
-        height: 100px;
+        width: 100%;
+        height: 190px;
+        display: block;
+        margin: 0 auto;
     }
 
     .item-header {
@@ -839,6 +895,7 @@ html {
         font-size: 13px;
         padding: 5px 12px;
     }
+
 
     .menu-tabs {
         gap: 10px;
@@ -866,11 +923,6 @@ html {
         justify-content: space-between;
         width: 90%;
         padding: 8px 16px;
-    }
-
-    .nav-links,
-    .book {
-        display: none;
     }
 
     .nav-left {
@@ -914,10 +966,11 @@ html {
     }
 
     .menu-item img {
-        width: 100%;
-        height: 190px;
         display: block;
         margin: 0 auto;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
     }
 
     .item-header {
